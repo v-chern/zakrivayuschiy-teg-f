@@ -1,9 +1,16 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 
 :root {
-    --bg-image: url(../images/background.png);
+    --bg-image: 
+        repeating-linear-gradient(90deg, #d3d3d3 2px, transparent 4px),
+        repeating-linear-gradient(180deg, #d3d3d3 2px, transparent 4px),
+        linear-gradient(180deg, #E7E7E7 0.01%, #1A1A1A 100%);
     --bg-color: #FFF;
     --main-color: #000;
     --headings-font: 'Press Start 2P';
-    --text-font: 'Inter'
+    --headings-font-weight: 700;
+    --text-font: 'Inter';
+    --text-font-weight: 400;
+    --tag-color: var(--main-color);
+    --tag-shadow: var(--bg-color);
 }
