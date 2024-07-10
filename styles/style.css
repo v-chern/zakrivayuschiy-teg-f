@@ -236,7 +236,7 @@
   width: 21px;
 }
 
-@media (width <= 480px) {
+@media (width <= 375px) {
   .page {
     width: 100%;
   } 
