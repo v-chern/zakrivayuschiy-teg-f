@@ -22,7 +22,7 @@
   background-position: center;
   background-attachment: fixed;
   background-color: var(--bg-color);
-  width: 700px;
+  width: clamp(23.438rem, 16.285rem + 30.52vw, 43.75rem); /*700px*/
   margin: auto;
   font-family: var(--text-font), sans-serif;
   font-variation-settings: 'wght' var(--text-font-weight);
@@ -42,13 +42,13 @@
 }
 
 .header__title {
-  margin-block-start: 136px;
-  font-size: 65px;
+  margin-block-start: clamp(7.5rem, 7.148rem + 1.5vw, 8.5rem);
+  font-size: clamp(3.063rem, 2.71rem + 1.5vw, 4.063rem);
 }
 
 .header__subtitle {
   margin-block-start: 20px;
-  font-size: 23px;
+  font-size: clamp(0.875rem, 0.677rem + 0.85vw, 1.438rem);
   text-transform: uppercase;
 }
 
@@ -68,17 +68,6 @@
   height: 14px;
 }
 
-.theme-menu__item-active {
-  opacity: 60%;
-}
-
-.theme-menu__item-active::before {
-  content: '▶';
-  font-size: 14px;
-  position: absolute;
-  left: -20px;
-}
-
 .theme-menu__button {
   background: none;
   border: none;
@@ -87,6 +76,47 @@
   font-size: 14px;
   line-height: 14px;
   text-align: left;
+  position: relative;
+}
+
+.theme-menu__button:disabled {
+  opacity: 60%;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  font-size: 14px;
+  position: absolute;
+  left: -20px;
+  animation: arrowMove 0.5s ease-in-out infinite alternate;
+}
+
+.theme-menu__button:hover {
+  opacity: 60%;
+  transition: all 0.3s ease;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: 60%;
+  transition: all 0.3s ease;
+}
+
+.theme-menu__button::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: var(--main-color);
+}
+
+.theme-menu__button:focus-visible::after {
+  width: 100%;
+  opacity: 60%;
+  transition: all 0.3s ease;
 }
 
 .content__list {
@@ -157,20 +187,83 @@
   padding-block-end: 25px;
 }
 
-.card__like-button {
+.card__icon-button {
   background: none;
-	color: inherit;
+	color: var(--main-color);
+  border: none;
+  padding: 0;
+  border: 2px solid transparent;
+  height: 39px;
+  width: 36px;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.card__like-image {
+  width: 100%;
+  height: 100%;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.content__button {
+  background: var(--bg-color);
+	color: var(--tag-shadow);
 	border: 2px solid var(--main-color);
-	padding: 10.5px 35px;
 	font-family: var(--headings-font), sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 12.6px;
 	cursor: pointer;
-	outline: inherit;
+  position: relative;
+}
+
+.content__button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 var(--main-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.content__button::before {
+  content: '';
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  width: 0%;
+  background-color: var(--main-color);
+  transition: width 0.5s ease-in-out;
+  z-index: 0;
+} 
+
+.content__button:hover::before {
+  width: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+.button__text {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+}
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
 }
 
 .content__dialog[open] {
+  background: var(--bg-color);
+  color: var(--main-color);
   width: 357px;
   display: flex;
   flex-direction: column;
@@ -196,13 +289,15 @@
 }
 
 .content__dialog_img {
-  height: 39px;
-  width: 39px;
+  max-width: 39px;
+  max-height: 39px;
+  height: 100%;
+  width: 100%;
 }
 
-.content__dialog_button {
+.dialog__button {
   background: var(--bg-color);
-	color: inherit;
+	color: var(--tag-shadow);
 	border: 2px solid var(--main-color);
 	padding: 12.5px 132.5px;
 }
@@ -215,17 +310,7 @@
 }
 
 .footer__button {
-  background: var(--bg-color);
-	color: inherit;
-	border: 2px solid var(--main-color);
-	padding: 15px 19px;
-	font-family: var(--headings-font), sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 12.6px;
-	cursor: pointer;
-	outline: inherit;
-
+  padding: 15px 19px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -240,15 +325,6 @@
   .page {
     width: 100%;
   } 
-
-  .header__title {
-    margin-block-start: 120px;
-    font-size: 49px;
-  }
-  
-  .header__subtitle {
-    font-size: 14px;
-  }
 
   .card__image-container {
     height: 375px;

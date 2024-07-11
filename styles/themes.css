@@ -18,6 +18,8 @@
     --text-font-weight: 400;
     --tag-color: var(--main-color);
     --tag-shadow: var(--bg-color);
+    --icon-main-color: var(--main-color);
+    --icon-acc-color: #FF0000;
 }
 
 :root.theme-dark {
@@ -33,6 +35,8 @@
     --text-font-weight: 465; 
     --tag-color: var(--bg-color);
     --tag-shadow: var(--main-color);
+    --icon-main-color: var(--main-color);
+    --icon-acc-color: #FF0000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -49,5 +53,7 @@
         --text-font-weight: 465;
         --tag-color: var(--bg-color);
         --tag-shadow: var(--main-color);
+        --icon-main-color: var(--main-color);
+        --icon-acc-color: #FF0000;
     }
 }
