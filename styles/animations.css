@@ -69,7 +69,7 @@
 }
 
 .like-icon.is-liked .sparks {
-  animation: heartSparks 0.3s 0.3s ease-in forwards; 
+  animation: heartSparks 0.3s 0.3s ease-in forwards;
 }
 
 @keyframes heartScale {

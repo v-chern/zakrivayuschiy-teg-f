@@ -165,7 +165,7 @@
 }
 
 @supports((text-stroke: 1px var(--tag-shadow)) or (-webkit-text-stroke: 1px var(--tag-shadow))) {
-  p {
+  .card__image-tag {
       -webkit-text-stroke: 1px var(--tag-shadow);
       text-stroke: 1px var(--tag-shadow);
       text-shadow: none;
