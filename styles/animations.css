@@ -22,7 +22,7 @@
 }
 
 .like-icon .contour {
-    transition: fill 0.1s linear;
+  transition: fill 0.1s linear;
 }
 
 .like-icon .heart {
@@ -65,21 +65,21 @@
 }
 
 .like-icon.is-liked .heart {
-    animation: heartScale 0.3s 0.1s ease-in alternate;
+  animation: heartScale 0.3s 0.1s ease-in alternate;
 }
 
 .like-icon.is-liked .sparks {
-    animation: heartSparks 0.3s 0.3s ease-in forwards; 
+  animation: heartSparks 0.3s 0.3s ease-in forwards; 
 }
 
 @keyframes heartScale {
-    0% {
-      scale: 1;
-    }
-    100% {
-      scale: 1.5;
-    }
+  0% {
+    scale: 1;
   }
+  100% {
+    scale: 1.5;
+  }
+}
 
 @keyframes heartSparks {
   0% {
@@ -93,12 +93,11 @@
   }
 }
 
-
 @keyframes arrowMove {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(4px);
-    }
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(4px);
+  }
 }

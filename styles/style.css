@@ -94,13 +94,13 @@
 
 .theme-menu__button:hover {
   opacity: 60%;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:focus {
   outline: none;
   opacity: 60%;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button::after {
@@ -109,14 +109,14 @@
   left: 0px;
   bottom: -2px;
   width: 0%;
+  opacity: 60%;
   height: 2px;
   background-color: var(--main-color);
 }
 
 .theme-menu__button:focus-visible::after {
   width: 100%;
-  opacity: 60%;
-  transition: all 0.3s ease;
+  transition: width 0.3s ease;
 }
 
 .content__list {
@@ -164,6 +164,14 @@
   text-shadow: 1px 1px var(--tag-shadow);
 }
 
+@supports((text-stroke: 1px var(--tag-shadow)) or (-webkit-text-stroke: 1px var(--tag-shadow))) {
+  p {
+      -webkit-text-stroke: 1px var(--tag-shadow);
+      text-stroke: 1px var(--tag-shadow);
+      text-shadow: none;
+  }
+} 
+
 .card__text-container {
   padding: 25px;
   display: flex;
@@ -190,7 +198,6 @@
 .card__icon-button {
   background: none;
 	color: var(--main-color);
-  border: none;
   padding: 0;
   border: 2px solid transparent;
   height: 39px;
@@ -203,7 +210,7 @@
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--main-color);
-  transition: all 0.3s ease;
+  transition: border 0.3s ease;
 }
 
 .card__like-image {
@@ -319,6 +326,34 @@
 .footer__button_img {
   height: 21px;
   width: 21px;
+}
+
+.filter_sepia {
+  filter: sepia(100%);
+}
+
+.filter_grayscale {
+  filter: grayscale(100%);
+}
+
+.filter_invert {
+  filter: invert(100%);
+}
+
+.filter_draw {
+  filter: grayscale(100%) contrast(200%) brightness(150%);
+}
+
+.filter_saturate {
+  filter: saturate(200%);
+}
+
+.filter_blur {
+  filter: blur(5px);
+}
+
+.filter_contrast {
+  filter: contrast(150%);
 }
 
 @media (width <= 375px) {
